@@ -23,8 +23,8 @@ a.push(...[...Array(10)].map(_ => Math.floor(Math.random() * (25 - 5 + 1)) + 5))
 console.log(a);
 
 // f) Iš masyvo elementų sukurkite du naujus masyvus.Vienas turi būti sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių(pagal neporinį - porinį indeksą, ne reikšmę);
-const odd = [...a].filter(n => n % 2 !== 0);
-const even = [...a].filter(n => n % 2 === 0);
+const odd = [...a].filter((n, i) => i % 2 !== 0);
+const even = [...a].filter((n, i) => i % 2 === 0);
 console.log(odd);
 console.log(even);
 
@@ -107,7 +107,7 @@ console.log(arr3);
 const arr4 = arr1.filter(n => arr2.includes(n));
 console.log(arr4);
 
-// console.clear();
+console.clear();
 // 8. Sugeneruokite masyvą, kurio indeksus sudarytų 5 uždavinio pirmo masyvo reikšmės, o jo reikšmės  būtų iš  antrojo 5 uždavinio masyvo.
 // const arr5 = arr1.filter(n => arr2.length > n).map((n) => arr2[n]);
 // console.log(arr5);
