@@ -1,21 +1,21 @@
 // 1. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 
 const a = [...Array(30)].map(_ => Math.floor(Math.random() * (25 - 5 + 1)) + 5);
-console.log(...a);
+console.log(a);
 
 // 2. Naudodamiesi 1 uždavinio masyvu:
 // a) Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
-console.log(a.filter(n => n > 10).length);
+// console.log(a.filter(n => n > 10).length);
 
 // b) Raskite didžiausią masyvo reikšmę ir jos indeksą;
-console.log([...a].sort((b, c) => c - b)[0], a.indexOf([...a].sort((b, c) => c - b)[0]));
+console.log(Math.max(...a), a.indexOf(Math.max(...a)));
 
 // c) Suskaičiuokite visų porinių(lyginių) indeksų reikšmių sumą;
-console.log([...a].reduce((t, _, i) => t + (i % 2 === 0 ? i : 0), 0));
+console.log(a.filter((_, i) => i % 2 == 0).reduce((t, n) => t + n, 0));
 
 // d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
 
-const b = [...a].map((n, i) => n - i);
+const b = a.map((n, i) => n - i);
 console.log(b);
 
 // e) Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
@@ -33,14 +33,14 @@ even.forEach((n, i) => even[i] = n > 15 ? 0 : n);
 console.log(even);
 
 // h) Suraskite pirmą(mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
-console.log(even.indexOf(even.find(n => n > 10)));
+console.log(even.findIndex(n => n > 10));
 
 
 //3. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
 const abc = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][Math.floor(Math.random() * 4)]);
 
 console.log(abc);
-console.log(abc.reduce((t = {}, n) => {
+console.log(abc.reduce((t, n) => {
     t[n] ? t[n]++ : t[n] = 1;
     return t;
 }, {}));
@@ -107,10 +107,13 @@ console.log(arr3);
 const arr4 = arr1.filter(n => arr2.includes(n));
 console.log(arr4);
 
-console.clear();
+// console.clear();
 // 8. Sugeneruokite masyvą, kurio indeksus sudarytų 5 uždavinio pirmo masyvo reikšmės, o jo reikšmės  būtų iš  antrojo 5 uždavinio masyvo.
-// const arr5 = arr1.filter(n => arr2.length > n).map((n) => arr2[n]);
-// console.log(arr5);
+const arr5 = [...Array(Math.max(...arr1))]
+console.log(arr5);
+arr1.forEach((n, i, arr) => arr5[n] = arr2[i])
+
+console.log(arr5);
 
 // 9. Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai - atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma.Ketvirtas - antro ir trečio suma.Penktas trečio ir ketvirto suma ir t.t.
 const randArr = Array(10).fill(0).reduce((t, _, i) => {
