@@ -15,6 +15,7 @@ https://docs.google.com/document/d/1aCdjUPc8u1zmiyaWsTq9KhNwNc90thSnk2Dnuj3nz_0/
 
 react:
 https://reactjs.org/
+https://reactjs.org/docs/create-a-new-react-app.html
 https://dmitripavlutin.com/tag/react/
 axios
 https://axios-http.com/docs/intro
