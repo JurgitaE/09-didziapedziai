@@ -1,9 +1,9 @@
 // console.log('Hello');
 
 function rand(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 // 1. Programiškai ridenkite du žaidimo kauliukus - sugeneruokite du atsitiktinius skaičius nuo 1 iki 6 Jeigu kauliukų suma didesnė nei 8 jūs laimėjote, priešingu atveju pralošėte.Išveskite atsakymą, kuriame būtų abiejų kauliukų reikšmės ir išvada laimėjote ar pralošėte.
 
@@ -24,14 +24,14 @@ console.log(`katinai: ${catsCows[0]}`, `karves: ${catsCows[1]}.`, catsCows[0] <=
 
 const roll = rand(1, 6);
 switch (roll) {
-    case 1:
-    case 5: console.log(`Isridenai ${roll} - pirk televizoriu`);
-        break;
-    case 3:
-    case 4: console.log(`Isridenai ${roll} - pirk skalbimo masina`);
-        break;
-    default: console.log(`Isridenai ${roll} - pirk saldytuva`);
-        break;
+	case 1:
+	case 5: console.log(`Isridenai ${roll} - pirk televizoriu`);
+		break;
+	case 3:
+	case 4: console.log(`Isridenai ${roll} - pirk skalbimo masina`);
+		break;
+	default: console.log(`Isridenai ${roll} - pirk saldytuva`);
+		break;
 }
 
 // 5 (BOSO lygis) Sugeneruokite tris atsitiktinius skaičius nuo 1 iki 7. Skaičius atspausdinkite nuo mažiausio iki didžiausio.Pavyzdžiui: sugeneravus 4, 2, 4 juos reikia atspausdinti tokia tvarka: 2 4 4;
