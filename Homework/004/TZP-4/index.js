@@ -4,7 +4,7 @@ function rand(min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const africa = ['Zebras', 'Liutas', '', 'Raganosis', '', 'Raganosis'];
+const africa = ['Zebras', 'Liutas', '', 'Raganosis', '', 'Raganosis', 'Begemotas'];
 const australia = ['Kengura', 'Anciasnapis', 'Dingo', 'Atsirado', 'Strutis'];
 /* 
 1. Tiesiogiai HTML faile rankiniu būdu sukurkite du tuščius < h2 > tagus ir vieną mygtuką.Paspaudus mygtuką kiekvienam
@@ -13,7 +13,14 @@ const australia = ['Kengura', 'Anciasnapis', 'Dingo', 'Atsirado', 'Strutis'];
    nudažyti raudonai. 
 */
 console.log('---------------1----------------');
+const h2DOM = document.querySelectorAll('h2');
+const buttonDOM = document.getElementById('btn-1');
 
+buttonDOM.addEventListener('click', (() => {
+   h2DOM.forEach(a => a.innerText = rand(1, 6));
+   h2DOM.forEach(a => a.style.color = h2DOM[0].innerText === h2DOM[1].innerText ? 'red' : 'black');
+
+}));
 /* 
 2. Tiesiogiai HTML faile rankiniu būdu sukurkite < h3 > tagą ir vieną mygtuką.Susikurkite tuščią masyvą, skaičiams
    saugoti.Paspaudus mygtuką, sugeneruokite rand() skaičių nuo 1 iki 10. Sugeneruotą skaičių pridėkite į masyvą, o tą
@@ -21,6 +28,17 @@ console.log('---------------1----------------');
    sumą. 
 */
 console.log('---------------2----------------');
+const arr1 = [];
+let sum = 0;
+const buttonDOM2 = document.getElementById('btn-2');
+const h3DOM = document.getElementById('task-2');
+
+buttonDOM2.addEventListener('click', () => {
+   arr1.push(rand(1, 10));
+   console.log(arr1);
+   sum += arr1.at(-1);
+   h3DOM.innerText = sum;
+});
 
 /* 
 3. Tiesiogiai HTML faile rankiniu būdu sukurkite < ul > tagą.JS pagalba perskaitykite masyvą africa ir naudodami
@@ -28,8 +46,15 @@ console.log('---------------2----------------');
    stringu viduje ir juos įrašykite į < ul > tago vidų.Elementus su tuščiais stringais praleiskite ir jiems < li >
    elementų nekurkite. 
 */
-console.log('---------------3----- -----------');
-
+const ulDOM = document.getElementById('task-3');
+console.log('---------------3----------------');
+africa.forEach(a => {
+   if (a !== '') {
+      const liElement = document.createElement('li');
+      liElement.innerText = a;
+      ulDOM.appendChild(liElement);
+   }
+});
 /* 
 4. Tiesiogiai HTML faile rankiniu būdu sukurkite du tuščius input laukelius, vieną < h5 > tagą ir du mygtukus: “+” ir
    “-”. Suprogramuokite kalkuliatorių taip, kad įrašius skaičius į abu input laukelius ir paspaudus atitinkamą mygtuką
@@ -38,6 +63,15 @@ console.log('---------------3----- -----------');
 
 */
 console.log('---------------4----------------');
+const h5DOM = document.querySelector('h5');
+const inputDOM = document.querySelectorAll('input');
+const mathButton = document.querySelectorAll('.math');
+
+mathButton.forEach(a => a.addEventListener('click', () => {
+   a.innerText === '-' ?
+      h5DOM.innerText = +inputDOM[0].value - +inputDOM[1].value :
+      h5DOM.innerText = +inputDOM[0].value + +inputDOM[1].value;
+}));
 
 /* 
 5.(BOSO lygis) Tiesiogiai HTML faile rankiniu būdu sukurkite < ul > tagą.JS pagalba perskaitykite masyvą australia ir
@@ -46,6 +80,15 @@ bendrą stringą.Tą stirngą naudodami innerHTML() metodą įdėkite į < ul > 
 nuspalvinkite mėlynai. 
 */
 console.log('---------------5----------------');
+const ulAUDOM = document.getElementById('task-5');
+
+australia.forEach(a => {
+   if (a === 'Dingo') {
+      ulAUDOM.innerHTML += `<li style='background-color: blue;'>${a}</li>`;
+   } else {
+      ulAUDOM.innerHTML += `<li>${a}</li>`;
+   }
+})
 
 /*
  Visuose uždaviniuose jeigu jums reikia galite naudoti išorinį css stilių, o prie rankiniu būdu HTML’e kuriamų tagų
