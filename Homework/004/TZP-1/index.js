@@ -36,4 +36,4 @@ switch (roll) {
 
 // 5 (BOSO lygis) Sugeneruokite tris atsitiktinius skaičius nuo 1 iki 7. Skaičius atspausdinkite nuo mažiausio iki didžiausio.Pavyzdžiui: sugeneravus 4, 2, 4 juos reikia atspausdinti tokia tvarka: 2 4 4;
 
-console.log([rand(1, 7), rand(1, 7), rand(1, 7)].sort((a, b) => a - b));
+[...Array(3)].map(a => rand(1, 7)).sort((a, b) => a - b).forEach(a => console.log(a));
