@@ -55,5 +55,6 @@ const probabilities = Array(3).fill(1);
 do {
     ++km;
     probabilities.forEach((_, i) => probabilities[i] = rand(0, 1));
+    console.log(probabilities);
 } while (probabilities.filter(a => a === 0).length !== 0);
 console.log(km - 1);
