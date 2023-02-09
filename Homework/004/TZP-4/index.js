@@ -46,8 +46,8 @@ buttonDOM2.addEventListener('click', () => {
    stringu viduje ir juos įrašykite į < ul > tago vidų.Elementus su tuščiais stringais praleiskite ir jiems < li >
    elementų nekurkite. 
 */
-const ulDOM = document.getElementById('task-3');
 console.log('---------------3----------------');
+const ulDOM = document.getElementById('task-3');
 africa.forEach(a => {
    if (a !== '') {
       const liElement = document.createElement('li');
