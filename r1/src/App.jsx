@@ -1,12 +1,20 @@
 import './App.css';
-import Racoon from './Components/Racoon';
+import Animal from './Components/jb/Animal';
 
-function App() {
+function App() { 
+    // const fox = <u>FOX: number {rand(100, 199)}</u>;
+
+    // const labas = <i>Labas</i>
+
+
     return (
         <div className="App">
             <header className="App-header">
-                <Racoon></Racoon>
-                <Racoon />
+
+                <Animal animalName='Racoon' color='coral'/>
+                <Animal animalName='Fox' color='crimson'/>
+                <Animal animalName='Rabbit' color='black'/>
+
             </header>
         </div>
     );
