@@ -1,5 +1,10 @@
-import './App.css';
+import './App.scss';
 import Animal from './Components/jb/Animal';
+
+const obj = ['racoon', 'fox'];
+
+// obj.add('racoon');
+// obj.add('fox');
 
 function App() { 
     // const fox = <u>FOX: number {rand(100, 199)}</u>;
@@ -11,9 +16,12 @@ function App() {
         <div className="App">
             <header className="App-header">
 
-                <Animal animalName='Racoon' color='coral'/>
-                <Animal animalName='Fox' color='crimson'/>
-                <Animal animalName='Rabbit' color='black'/>
+                <h2>{obj}</h2>
+
+                <Animal animalName='Racoon' color='coral' h1Class='blue'/>
+                <Animal animalName='Wolf' color='black' h1Class='green'/>
+                <Animal animalName='Fox' color='crimson' h1Class='green'/>
+                <Animal animalName='Rabbit' color='black' h1Class='yellow'/>
 
             </header>
         </div>

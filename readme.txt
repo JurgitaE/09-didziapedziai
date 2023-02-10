@@ -1,4 +1,5 @@
 Sveiki, Didžiapėdžiai
+https://github.com/A-Kija/didziapedziai
 
 react:
 https://reactjs.org/
@@ -13,7 +14,6 @@ https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopl
 
 
 ND:
-https://github.com/A-Kija/didziapedziai
 
 30 mins testai:
 https://drive.google.com/drive/folders/1-94u3ZQoOZduIirC1mZ5Obct7C72bLNV
