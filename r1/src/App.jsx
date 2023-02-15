@@ -1,7 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import './App.scss';
+import randColor from './Functions/randColor';
 import { v4 as uuidv4 } from 'uuid';
+import Sq from './Components/009/Sq';
+
 
 function App() {
 /* 
@@ -24,6 +27,13 @@ const changeColor2 = () => {
     setSqColor(c => c === 'skyblue' ? 'crimson' : 'skyblue' );
 } */
 
+    const [sq, setSq] = useState([]);
+
+    const addSq = () => {
+        // setSq(sq.push(1)); NEGALIMA
+        setSq(s => [...s, {color: randColor()}]);
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -35,7 +45,14 @@ const changeColor2 = () => {
                <button className='blue' onClick={changeColor}>Make blue</button> 
                <button className='blue' onClick={changeColor2}>change 2</button> 
                <button className='red' onClick={addOne}>+1</button>  */}
-
+             <div className="sq-bin">
+                
+                {
+                    sq.map((s, i) => <Sq key={i} s={s}/>)
+                }
+                
+            </div>   
+            <button className='red' onClick={addSq}>+[]</button>
             </header>
         </div>
     );
