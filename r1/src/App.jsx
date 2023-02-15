@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.scss';
 import randColor from './Functions/randColor';
 import { v4 as uuidv4 } from 'uuid';
-import Sq from './Components/009/Sq';
+// import Sq from './Components/009/Sq';
 
 
 function App() {
@@ -31,7 +31,7 @@ const changeColor2 = () => {
 
     const addSq = () => {
         // setSq(sq.push(1)); NEGALIMA
-        setSq(s => [...s, {color: randColor()}]);
+        setSq(s => [...s, {id: uuidv4(),color: randColor()}]);
     }
 
     return (
@@ -48,8 +48,20 @@ const changeColor2 = () => {
              <div className="sq-bin">
                 
                 {
-                    sq.map((s, i) => <Sq key={i} s={s}/>)
+                    // sq.map((s, i) => <Sq key={i} s={s} i={i}/>)
                 }
+               
+               {
+                sq.map((s,i) => 
+                <div key={i} className="sq" style={{
+                    backgroundColor: s.color + '70',
+                    borderColor: s.color,
+                    }}>
+                    {i}
+                </div>
+
+                )}
+               
                 
             </div>   
             <button className='red' onClick={addSq}>+[]</button>
