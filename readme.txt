@@ -12,7 +12,7 @@ react chrome plugin:
 https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 
 
-
+https://www.npmjs.com/package/uuid
 ND:
 
 30 mins testai:
@@ -26,3 +26,6 @@ https://docs.google.com/document/d/1ptHMRiS6A_k3t67VV1JbuTyv5hfxoBLu1RucCJjTyl4/
 
 Map & setItem
 https://docs.google.com/document/d/1aCdjUPc8u1zmiyaWsTq9KhNwNc90thSnk2Dnuj3nz_0/edit?usp=sharing
+
+React:
+https://drive.google.com/drive/folders/1LayTfQE3KZOOi4-E_qDmFNboyjkb_ZEA?usp=sharing
