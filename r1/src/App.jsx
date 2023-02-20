@@ -1,70 +1,37 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import './App.scss';
-import randColor from './Functions/randColor';
-import { v4 as uuidv4 } from 'uuid';
-// import Sq from './Components/009/Sq';
-
+import AddButton from './Components/010/Buttons/AddButton';
+import ClearButton from './Components/010/Buttons/ClearButton';
+import ColorButton from './Components/010/Buttons/ColorButton';
+import DefaultSortButton from './Components/010/Buttons/DefaultSortButton';
+import Filter500Button from './Components/010/Buttons/Filter500Button';
+import ShowAllButton from './Components/010/Buttons/ShowAllButton';
+import SortButton from './Components/010/Buttons/SortButton';
+import SpinAllButton from './Components/010/Buttons/SpinAllButton';
+import StopSpinButton from './Components/010/Buttons/StopSpinButton';
+import Sq from './Components/010/Sq';
 
 function App() {
-/* 
-const [sqColor, setSqColor] = useState('crimson');
-const [count, setCount] = useState(0);
-
-const changeColor = () => {
-    // sqColor = 'skyblue'; negalima 
-    setSqColor('skyblue'); //naujos reiksmes priskyrimas
-}
-const addOne = () => {
-    // setCount(count++); mirstat iskart
-    // setCount(count + 1); ispejimas taip negalima
-    // setCount(count + 1); reiksmes redagavimas
-    // setCount(c => c + 1);
-    // setCount(c => c + 1);
-    setCount(c => c + 1);
-}
-const changeColor2 = () => {
-    setSqColor(c => c === 'skyblue' ? 'crimson' : 'skyblue' );
-} */
-
     const [sq, setSq] = useState([]);
-
-    const addSq = () => {
-        // setSq(sq.push(1)); NEGALIMA
-        setSq(s => [...s, {id: uuidv4(),color: randColor()}]);
-    }
 
     return (
         <div className="App">
             <header className="App-header">
-
-{/*                 <div className='sq-bin'>
-                    <div className='sq' style={{backgroundColor: sqColor}}></div>
-                    <div className='sq'>{count}</div>
+                <div className="sq-bin">
+                    {sq.map((s, i) => (s.show ? <Sq key={i} s={s} i={i} setSq={setSq} /> : null))}
                 </div>
-               <button className='blue' onClick={changeColor}>Make blue</button> 
-               <button className='blue' onClick={changeColor2}>change 2</button> 
-               <button className='red' onClick={addOne}>+1</button>  */}
-             <div className="sq-bin">
-                
-                {
-                    // sq.map((s, i) => <Sq key={i} s={s} i={i}/>)
-                }
-               
-               {
-                sq.map((s,i) => 
-                <div key={i} className="sq" style={{
-                    backgroundColor: s.color + '70',
-                    borderColor: s.color,
-                    }}>
-                    {i}
+                <div className="sq-bin">
+                    <AddButton setSq={setSq} classes="blue" />
+                    <ClearButton setSq={setSq} classes="red" />
+                    <ColorButton setSq={setSq} classes="coral" />
+                    <StopSpinButton setSq={setSq} classes="" />
+                    <SpinAllButton setSq={setSq} classes="" />
+                    <SortButton setSq={setSq} classes="blue" />
+                    <DefaultSortButton setSq={setSq} classes="blue" />
+                    <Filter500Button setSq={setSq} classes="red" />
+                    <ShowAllButton setSq={setSq} classes="red" />
                 </div>
-
-                )}
-               
-                
-            </div>   
-            <button className='red' onClick={addSq}>+[]</button>
             </header>
         </div>
     );
