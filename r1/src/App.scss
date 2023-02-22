@@ -102,6 +102,7 @@ button {
     text-transform: uppercase;
     background-color: $butonGray;
     color: white;
+    cursor: pointer;
     &:hover {
         background-color: darken($butonGray, 20%);
     }
@@ -162,5 +163,112 @@ button {
             animation: App-logo-spin infinite 5s linear;
             animation-direction: reverse;
         }
+    }
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border: 10px dashed orange;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: App-logo-spin infinite 15s linear;
+    .circle-number {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: App-logo-spin infinite 15s linear;
+        animation-direction: reverse;
+        &.n1 {
+            background-color: darkorange;
+            top: 120px;
+            left: 10px;
+        }
+        &.n2 {
+            background-color: darkorchid;
+            top: 120px;
+            right: 10px;
+        }
+        &.n3 {
+            background-color: darkgoldenrod;
+            top: 10px;
+            left: 120px;
+        }
+        &.n4 {
+            background-color: darkolivegreen;
+            bottom: 10px;
+            right: 120px;
+        }
+    }
+}
+
+.input-bin {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    &.red {
+        background-color: crimson;
+    }
+    label {
+        padding: 30px 0 10px 0;
+    }
+    input {
+        font-size: 0.8em;
+        padding: 2px 5px;
+        font-weight: lighter;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    select {
+        font-size: 0.8em;
+        padding: 2px 5px;
+        font-weight: lighter;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .cb-bin {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        label.cb {
+            font-size: 0.7em;
+            padding: 0 15px 0 5px;
+            cursor: pointer;
+            user-select: none;
+            color: darkgrey;
+        }
+        input {
+            display: none;
+        }
+        input:checked + label.cb {
+            color: white;
+        }
+    }
+    button {
+        max-width: 100px;
     }
 }
