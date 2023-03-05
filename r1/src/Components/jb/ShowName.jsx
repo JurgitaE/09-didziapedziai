@@ -1,9 +1,10 @@
 function ShowName({animalName, fontFamily}) {
+
     switch(animalName) {
         case 'Racoon': return (
             <i>R-A-C-OO-N</i>
         );
-        case 'Fox':  return (
+        case 'Fox': return (
             <u style={{fontFamily}}>FoX</u>
         );
         case 'Wolf': return null;
@@ -11,6 +12,7 @@ function ShowName({animalName, fontFamily}) {
             <b>what?</b>
         )
     }
+
 }
 
-export default ShowName;
+export default ShowName

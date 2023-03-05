@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
+import { useState } from 'react';
 import './App.scss';
-import { useEffect, useState } from 'react';
+import Fox from './Components/016/Fox';
 import Home from './Components/016/Home';
 import Menu from './Components/016/Menu';
-import axios from 'axios';
 import Racoon from './Components/016/Racoon';
-import Fox from './Components/016/Fox';
+import axios from 'axios';
 
 function App() {
     const [page, setPage] = useState('home');
@@ -21,11 +22,14 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Menu setPage={setPage} />
-                {page === 'home' && null !== content ? <Home title={content.title} /> : null}
-                {page === 'racoon' && null !== content ? <Racoon title="test" /> : null}
-                {page === 'fox' && null !== content ? <Fox title="test" /> : null}
 
-                {null == content ? <h1>Loading...</h1> : null}
+                {page === 'home' && null !== content ? <Home title={content.title} /> : null}
+
+                {page === 'fox' && null !== content ? <Fox title={content.title} /> : null}
+
+                {page === 'racoon' && null !== content ? <Racoon title={content.title} /> : null}
+
+                {null == content ? <h1>LOADING...</h1> : null}
             </header>
         </div>
     );

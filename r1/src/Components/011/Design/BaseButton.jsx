@@ -1,5 +1,8 @@
-function BaseButton({ title, clickHandler }) {
-    return <button onClick={clickHandler}>{title}</button>;
+function BaseButton({title, clickHandler}) {
+
+    return (
+        <button onClick={clickHandler}>{title}</button>
+    )
 }
 
 export default BaseButton;

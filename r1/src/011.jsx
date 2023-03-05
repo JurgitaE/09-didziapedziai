@@ -10,6 +10,7 @@ import { withAdd, withClear, withColor } from './Components/011/HOCs/sq';
 // import Number from './Components/011/Number';
 
 function App() {
+
     const [sq, setSq] = useState([]);
 
     const BaseButtonWithAdd = withAdd(BaseButton);
@@ -19,41 +20,28 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {/* <Circle>
+            {/* <Circle>
                 <Number type="n1"/>
                 <Number type="n2"/>
                 <Number type="n3"/>
                 <Number type="n4"/>
             </Circle> */}
                 <div className="sq-bin">
-                    {sq.map((s, i) =>
-                        s.show ? (
-                            <Sq
-                                key={i}
-                                s={s}
-                                i={i}
-                                setSq={setSq}
-                            />
-                        ) : null
-                    )}
+                    {
+                        sq.map((s, i) => s.show ? <Sq key={i} s={s} i={i} setSq={setSq} /> : null)
+                    }
                 </div>
                 <div className="sq-bin">
-                    <BaseButtonWithAdd
-                        title="add"
-                        setSq={setSq}
-                    />
-                    <RedButtonWithClear
-                        title="clear"
-                        setSq={setSq}
-                    />
-                    <BlueButtonWithColor
-                        title="color"
-                        setSq={setSq}
-                    />
+                    <BaseButtonWithAdd title="add" setSq={setSq} />
+                    <RedButtonWithClear title="clear" setSq={setSq} />
+                    <BlueButtonWithColor title="color" setSq={setSq} /> 
                 </div>
+                
+
             </header>
         </div>
     );
+
 }
 
 export default App;

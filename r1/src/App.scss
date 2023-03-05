@@ -265,7 +265,7 @@ button {
         input {
             display: none;
         }
-        input:checked + label.cb {
+        input:checked+label.cb {
             color: white;
         }
     }

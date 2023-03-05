@@ -1,11 +1,8 @@
-function BaseSmallButton({ title, clickHandler }) {
+function BaseSmallButton({title, clickHandler}) {
+
     return (
-        <button
-            className="small"
-            onClick={clickHandler}>
-            {title}
-        </button>
-    );
+        <button className="small" onClick={clickHandler}>{title}</button>
+    )
 }
 
 export default BaseSmallButton;

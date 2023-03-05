@@ -12,65 +12,37 @@ import SpinAllButton from './Components/010/Buttons/SpinAllButton';
 import StopSpinButton from './Components/010/Buttons/StopSpinButton';
 import Sq from './Components/010/Sq';
 
+
+
 function App() {
+
     const [sq, setSq] = useState([]);
 
     return (
         <div className="App">
             <header className="App-header">
+
                 <div className="sq-bin">
-                    {sq.map((s, i) =>
-                        s.show ? (
-                            <Sq
-                                key={i}
-                                s={s}
-                                i={i}
-                                setSq={setSq}
-                            />
-                        ) : null
-                    )}
+                    {
+                        sq.map((s, i) => s.show ? <Sq key={i} s={s} i={i} setSq={setSq} /> : null)
+                    }
                 </div>
                 <div className="sq-bin">
-                    <AddButton
-                        setSq={setSq}
-                        classes="blue"
-                    />
-                    <ClearButton
-                        setSq={setSq}
-                        classes="red"
-                    />
-                    <ColorButton
-                        setSq={setSq}
-                        classes="coral"
-                    />
-                    <StopSpinButton
-                        setSq={setSq}
-                        classes=""
-                    />
-                    <SpinAllButton
-                        setSq={setSq}
-                        classes=""
-                    />
-                    <SortButton
-                        setSq={setSq}
-                        classes="blue"
-                    />
-                    <DefaultSortButton
-                        setSq={setSq}
-                        classes="blue"
-                    />
-                    <Filter500Button
-                        setSq={setSq}
-                        classes="red"
-                    />
-                    <ShowAllButton
-                        setSq={setSq}
-                        classes="red"
-                    />
+                    <AddButton setSq={setSq} classes="blue" />
+                    <ClearButton setSq={setSq} classes="red" />
+                    <ColorButton setSq={setSq} classes="coral" />
+                    <StopSpinButton setSq={setSq} classes="" />
+                    <SpinAllButton setSq={setSq} classes="" />
+                    <SortButton setSq={setSq} classes="blue" />
+                    <DefaultSortButton setSq={setSq} classes="blue" />
+                    <Filter500Button setSq={setSq} classes="red" />
+                    <ShowAllButton setSq={setSq} classes="red" />
                 </div>
+
             </header>
         </div>
     );
+
 }
 
 export default App;

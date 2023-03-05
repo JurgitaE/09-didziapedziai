@@ -1,4 +1,5 @@
-function Delete({ setDeleteModal, setDeleteData, dice }) {
+function Delete({setDeleteModal, setDeleteData, dice}) {
+
     return (
         <div className="delete-modal">
             Confirm delete
@@ -6,6 +7,7 @@ function Delete({ setDeleteModal, setDeleteData, dice }) {
             <span onClick={() => setDeleteModal(null)}>Cancel</span>
         </div>
     );
+
 }
 
 export default Delete;

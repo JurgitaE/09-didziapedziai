@@ -6,6 +6,7 @@ import randColor from './Functions/randColor';
 // import Sq from './Components/009/Sq';
 
 function App() {
+
     // const [sqColor, setSqColor] = useState('crimson');
     // const [count, setCount] = useState(0);
 
@@ -32,29 +33,31 @@ function App() {
 
     const addSq = () => {
         // setSq(sq.push(1)); NEGALIMA
-        setSq((s) => [...s, { id: uuidv4(), color: randColor() }]);
-    };
+        setSq(s => [...s, { id: uuidv4(), color: randColor() }]);
+    }
 
-    const delSq = (id) => {
-        setSq((s) => s.filter((s) => s.id !== id));
-    };
+    const delSq = id => {
+        setSq(s => s.filter(s => s.id !== id));
+    }
 
-    const cloneSq = (id) => {
-        const clone = sq.find((s) => s.id === id);
-        setSq((s) => [...s, { ...clone, id: uuidv4() }]);
-    };
+    const cloneSq = id => {
+        const clone = sq.find(s => s.id === id);
+        setSq(s => [...s, {...clone, id: uuidv4()}])
+    }
 
     const clearSq = () => {
         setSq([]);
-    };
+    }
 
     const changeColors = () => {
-        setSq((s) => s.map((s) => ({ ...s, color: randColor() })));
-    };
+        setSq(s => s.map(s => ({...s, color: randColor()})));
+    }
+
 
     return (
         <div className="App">
             <header className="App-header">
+
                 {/* <div className="sq-bin">
                     <div className="sq" style={{backgroundColor: sqColor}}>
                     </div>
@@ -70,49 +73,29 @@ function App() {
                         sq.map((s, i) => <Sq key={i} s={s} i={i}/>)
                     } */}
 
-                    {sq.map((s, i) => (
-                        <div
-                            key={i}
-                            className="sq spin"
-                            style={{
+                    {
+                        sq.map((s, i) =>
+                            <div key={i} className="sq spin" style={{
                                 backgroundColor: s.color + '70',
                                 borderColor: s.color,
                             }}>
-                            <div className="spin-back">
-                                <button
-                                    className="small red"
-                                    onClick={() => delSq(s.id)}>
-                                    del
-                                </button>
-                                <button
-                                    className="small blue"
-                                    onClick={() => cloneSq(s.id)}>
-                                    clone
-                                </button>
+                                <div className="spin-back">
+                                <button className="small red" onClick={() => delSq(s.id)}>del</button>
+                                <button className="small blue" onClick={() => cloneSq(s.id)}>clone</button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                    )}
                 </div>
                 <div className="sq-bin">
-                    <button
-                        className="coral"
-                        onClick={addSq}>
-                        +[]
-                    </button>
-                    <button
-                        className="red"
-                        onClick={clearSq}>
-                        clear
-                    </button>
-                    <button
-                        className="red"
-                        onClick={changeColors}>
-                        new
-                    </button>
+                <button className="coral" onClick={addSq}>+[]</button>
+                <button className="red" onClick={clearSq}>clear</button>
+                <button className="red" onClick={changeColors}>new</button>
                 </div>
+
             </header>
         </div>
     );
+
 }
 
 export default App;

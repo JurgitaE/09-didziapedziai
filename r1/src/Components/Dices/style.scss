@@ -149,7 +149,7 @@
         input {
             display: none;
         }
-        input:checked + label.cb {
+        input:checked+label.cb {
             color: white;
             background-color: skyblue;
             border-radius: 5px;

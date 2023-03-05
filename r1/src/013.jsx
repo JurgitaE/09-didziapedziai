@@ -1,25 +1,22 @@
-import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import Products from './Components/013/Products';
+// import Counter from './Components/013/Counter';
 
-function Timer() {
-    const [seconds, setSeconds] = useState(0);
+function App() {
 
-    useEffect(() => {
-        const timerId = setInterval(() => setSeconds(s => s + 1), 1000);
-        return () => clearInterval(timerId);
-    }, []);
+
 
     return (
-        <div className="sq-bin">
-            <div
-                className="sq"
-                style={{
-                    backgroundColor: '#9acd3270',
-                    borderColor: '#9acd32',
-                }}>
-                {seconds}
-            </div>
+        <div className="App">
+            <header className="App-header">
+
+            <Products />
+
+            </header>
         </div>
     );
+
 }
 
-export default Timer;
+export default App;

@@ -1,54 +1,28 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react"
 
-function Products() {
-    const [users, setUsers] = useState(null);
+function Timer() {
+
+    const [seconds, setSeconds] = useState(0);
+
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
-            setUsers(res.data.map((u, i) => ({ ...u, row: i })));
-        });
+        const timerId = setInterval(() => setSeconds(s => s + 1), 1000);
+        return () => clearInterval(timerId);
     }, []);
 
-    const sort = _ => {
-        setUsers(u => [...u].sort((a, b) => a.name.localeCompare(b.name)));
-    };
-
-    const sortDefault = _ => {
-        setUsers(u => [...u].sort((a, b) => a.row - b.row));
-    };
 
     return (
-        <div className="card">
-            <div className="card-header">
-                <h2>Users List</h2>
-            </div>
+        <div className="sq-bin">
+            <div className="sq" style={{
+            backgroundColor:'#9acd3270',
+            borderColor: '#9acd32',
+            }}>
 
-            <ul className="list-group list-group-flush">
-                {users === null ? (
-                    <li className="list-group-item">Loading...</li>
-                ) : (
-                    users.map(u => (
-                        <li
-                            className="list-group-item"
-                            key={u.id}>
-                            {u.name}
-                        </li>
-                    ))
-                )}
-            </ul>
-            <button
-                className="blue"
-                onClick={sort}>
-                sort
-            </button>
-            <button
-                className="blue"
-                onClick={sortDefault}>
-                sort default
-            </button>
+                {seconds}
         </div>
-    );
+        </div>
+    )
+
 }
 
-export default Products;
+export default Timer;
