@@ -13,7 +13,7 @@ const menu = `
 `;
 console.log(`http://localhost:3003/`);
 
-// SSR
+// SSR (server-side root)
 app.get('/', (req, res) => {
     res.send(`
     ${menu}
