@@ -47,7 +47,7 @@ app.post('/dices', (req, res) => {
 
     console.log(req.body);
     res.json({
-        message: 'OK',
+        message: { text: 'New dice is ready to roll', type: 'ok' },
         promiseId,
         id
     });
@@ -63,7 +63,27 @@ app.delete('/dices/:id', (req, res) => {
     deletedData = JSON.stringify(deletedData);
     fs.writeFileSync('./data.json', deletedData, 'utf8');
 
-    res.json({ message: 'OK' });
+    res.json({ message: { text: 'The dice was deleted', type: 'error' } });
+});
+
+app.put('/dices/:id', (req, res) => {
+    let allData = fs.readFileSync('./data.json', 'utf8');
+    allData = JSON.parse(allData);
+
+    const data = {
+        number: req.body.number,
+        size: req.body.size,
+        color: req.body.color,
+
+    };
+
+    let editedData = allData.map(d => d.id === req.params.id ? { ...d, ...data } : { ...d });
+
+
+    editedData = JSON.stringify(editedData);
+    fs.writeFileSync('./data.json', editedData, 'utf8');
+
+    res.json({ message: { text: 'New dice was edited', type: '' } });
 });
 
 
