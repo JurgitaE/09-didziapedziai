@@ -1,7 +1,1 @@
-[
-    { "number": 5, "size": 100, "color": "#c83c3c", "id": "754b710e-3536-4c8c-804c-2b6bd7729bbc" },
-    { "number": 1, "size": 100, "color": "#ffffff", "id": "3be8d38f-9dd3-4c72-8e11-e3ce4740a1c1" },
-    { "number": 1, "size": 100, "color": "#ffffff", "id": "5e04fc36-29e4-4aa7-9808-1be5d2e31de6" },
-    { "number": 1, "size": 100, "color": "#ffffff", "id": "c5e42111-5872-4bad-a959-b87601887e87" },
-    { "number": 1, "size": 100, "color": "#ffffff", "id": "09a13cbf-ee59-4a83-ad54-2004979cabe5" }
-]
+[{"number":1,"size":100,"color":"#ffffff","id":"04886482-fcef-45f0-996a-1cbbfff04075"},{"number":1,"size":100,"color":"#9d2020","id":"14a2ece5-27ad-4972-8a7d-7a214ef39cac"}]
