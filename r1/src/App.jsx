@@ -1,41 +1,33 @@
 import { useState } from 'react';
 import './App.scss';
 import BoxLarge from './Components/018/BoxLarge';
-import ContextData from './Components/018/ContextData';
+import GlobalUserContext from './Components/018/GlobalUserContext';
+import { GlobalSqContextProvider } from './Components/018/GlobalSqContext';
 import rand from './Functions/rand';
+import Buttons from './Components/018/Buttons';
+
+const users = ['bebras', 'zebras', 'udra'];
 
 function App() {
-    const [sq1, setSq1] = useState([]);
-    const [sq2, setSq2] = useState([]);
-
-    const addSq1 = () => {
-        setSq1(s => [...s, rand(100, 999)]);
-    };
-    const addSq2 = () => {
-        setSq2(s => [...s, rand(100, 999)]);
-    };
+    const [user, setUser] = useState(users[rand(0, 2)]);
 
     return (
-        <ContextData.Provider value={sq2}>
-            <div className="App">
-                <header className="App-header">
-                    <h1>conte-X-t</h1>
+        <GlobalUserContext.Provider value={{ user }}>
+            <GlobalSqContextProvider>
+                <div className="App">
+                    <header className="App-header">
+                        <BoxLarge />
 
-                    <BoxLarge sq1={sq1} />
-
-                    <button
-                        className="coral"
-                        onClick={addSq1}>
-                        add
-                    </button>
-                    <button
-                        className="blue"
-                        onClick={addSq2}>
-                        add
-                    </button>
-                </header>
-            </div>
-        </ContextData.Provider>
+                        <Buttons />
+                        <button
+                            className="red"
+                            onClick={() => setUser(users[rand(0, 2)])}>
+                            user
+                        </button>
+                    </header>
+                </div>
+            </GlobalSqContextProvider>
+        </GlobalUserContext.Provider>
     );
 }
 

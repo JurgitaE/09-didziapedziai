@@ -1,12 +1,14 @@
 import { useContext } from 'react';
-import ContextData from './ContextData';
+import { GlobalSqContext } from './GlobalSqContext';
+import GlobalUserContext from './GlobalUserContext';
 
-function BoxSmall({ sq1 }) {
-    const sq2 = useContext(ContextData);
+function BoxSmall() {
+    const { sq1, sq2 } = useContext(GlobalSqContext);
+    const { user } = useContext(GlobalUserContext);
 
     return (
         <div className="box-area">
-            <div className="title">SMALL BOX</div>
+            <div className="title">SMALL BOX of {user}</div>
             <div className="sq-bin">
                 {sq1?.map((s, i) => (
                     <div
