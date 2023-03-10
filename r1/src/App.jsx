@@ -18,8 +18,6 @@ function App() {
     const [editModal, setEditModal] = useState(null);
     const [editData, setEditData] = useState(null);
 
-    const [deleteData, setDeleteData] = useState(null);
-
     useEffect(() => {
         axios.get(URL).then(res => {
             setList(res.data);
@@ -44,17 +42,6 @@ function App() {
     }, [createData]);
 
     useEffect(() => {
-        if (null === deleteData) {
-            return;
-        }
-        axios.delete(URL + '/' + deleteData.id).then(res => {
-            console.log(res.data);
-            setLastUpdate(Date.now());
-            // addMessage({ text: res.data.message.text, type: res.data.message.type });
-        });
-    }, [deleteData]);
-
-    useEffect(() => {
         if (null === editData) {
             return;
         }
@@ -77,7 +64,6 @@ function App() {
                             list={list}
                             setDeleteModal={setDeleteModal}
                             deleteModal={deleteModal}
-                            setDeleteData={setDeleteData}
                             editModal={editModal}
                             setEditModal={setEditModal}
                             setEditData={setEditData}

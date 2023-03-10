@@ -1,5 +1,8 @@
-function Delete({setDeleteModal, setDeleteData, dice}) {
+import { useContext } from 'react';
+import { GlobalContext } from './GlobalContext';
 
+function Delete({ setDeleteModal, dice }) {
+    const { setDeleteData } = useContext(GlobalContext);
     return (
         <div className="delete-modal">
             Confirm delete
@@ -7,7 +10,6 @@ function Delete({setDeleteModal, setDeleteData, dice}) {
             <span onClick={() => setDeleteModal(null)}>Cancel</span>
         </div>
     );
-
 }
 
 export default Delete;
