@@ -31,13 +31,23 @@ app.get('/numbers', (req, res) => {
 app.post('/numbers', (req, res) => {
     let allData = fs.readFileSync('./data/numbers.json', 'utf8');
     allData = JSON.parse(allData);
-
     const id = uuidv4();
-    allData = JSON.stringify([...allData, { ...req.body, id }]);
+
+    allData = JSON.stringify({ ...allData }, { ...req.body, id });
     fs.writeFileSync('./data/numbers.json', allData, 'utf8');
+    res.json({
+        message: { text: 'New number is saved', 'type': 'success' }
+    });
+});
 
-    res.json({ message: { text: 'New number is saved', type: 'ok' } });
+app.delete('/numbers/:id', (req, res) => {
+    let allData = fs.readFileSync('./data/numbers.json', 'utf8');
+    allData = JSON.parse(allData);
 
+    let deletedData = JSON.stringify(allData.filter(d => req.params.id !== d.id));
+    fs.writeFileSync('./data/numbers.json', deletedData, 'utf8');
+
+    res.json({ message: { text: 'The Number was deleted', type: 'error' } });
 });
 
 app.listen(port, () => {

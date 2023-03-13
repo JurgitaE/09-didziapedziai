@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/app.scss';
 import Create from './Components/Create';
 import { GlobalProvider } from './Components/Global';
 import List from './Components/List';
+import ModalDelete from './Components/ModalDelete';
 
 function App() {
     return (
@@ -16,6 +18,7 @@ function App() {
                     </div>
                 </div>
             </div>
+            <ModalDelete />
         </GlobalProvider>
     );
 }
