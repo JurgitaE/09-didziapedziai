@@ -4,6 +4,8 @@ import Create from './Components/Create';
 import { GlobalProvider } from './Components/Global';
 import List from './Components/List';
 import ModalDelete from './Components/ModalDelete';
+import ModalAdd from './Components/ModalAdd';
+import ModalRem from './Components/ModalRem';
 
 function App() {
     return (
@@ -19,6 +21,8 @@ function App() {
                 </div>
             </div>
             <ModalDelete />
+            <ModalAdd />
+            <ModalRem />
         </GlobalProvider>
     );
 }

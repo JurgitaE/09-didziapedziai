@@ -1,27 +1,27 @@
 import { useContext, useEffect, useState } from 'react';
 import { Global } from './Global';
 
-function ModalAdd() {
-    const { addModal, setAddModal, setEdit } = useContext(Global);
+function ModalRem() {
+    const { remModal, setRemModal, setEdit } = useContext(Global);
     const [number, setNumber] = useState(0);
 
     useEffect(() => {
-        if (null === addModal) {
+        if (null === remModal) {
             return;
         }
         setNumber(0);
-    }, [addModal]);
+    }, [remModal]);
 
-    const add = _ => {
+    const rem = _ => {
         setEdit({
             number: parseInt(number),
-            id: addModal.id,
-            action: 'add',
+            id: remModal.id,
+            action: 'rem',
         });
-        setAddModal(null);
+        setRemModal(null);
     };
 
-    if (null === addModal) {
+    if (null === remModal) {
         return null;
     }
 
@@ -30,19 +30,19 @@ function ModalAdd() {
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Add to number {addModal.number}</h5>
+                        <h5 className="modal-title">Remove from number {remModal.number}</h5>
                         <button
                             type="button"
                             className="btn-close"
-                            onClick={() => setAddModal(null)}></button>
+                            onClick={() => setRemModal(null)}></button>
                     </div>
                     <div className="modal-body">
                         <div className="mb-3">
-                            <label className="form-label">Slide to add {number}</label>
+                            <label className="form-label">Slide to remove {number}</label>
                             <input
                                 type="range"
                                 min="0"
-                                max={99 - addModal.number}
+                                max={remModal.number - 1}
                                 className="form-range"
                                 value={number}
                                 onChange={e => setNumber(e.target.value)}
@@ -53,14 +53,14 @@ function ModalAdd() {
                         <button
                             type="button"
                             className="btn btn-secondary"
-                            onClick={() => setAddModal(null)}>
+                            onClick={() => setRemModal(null)}>
                             Cancel
                         </button>
                         <button
                             type="button"
                             className="btn btn-primary"
-                            onClick={add}>
-                            ADD
+                            onClick={rem}>
+                            REMOVE
                         </button>
                     </div>
                 </div>
@@ -69,4 +69,4 @@ function ModalAdd() {
     );
 }
 
-export default ModalAdd;
+export default ModalRem;

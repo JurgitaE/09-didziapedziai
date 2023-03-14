@@ -6,7 +6,7 @@ import { useWrite } from '../Use/useWrite';
 export const Global = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [response, setCreate, setDelete] = useWrite();
+    const [response, setCreate, setDelete, setEdit] = useWrite();
     const [list, setUpdate] = useRead();
     const [deleteModal, setDeleteModal, addModal, setAddModal, remModal, setRemModal] = useModal();
 
@@ -27,6 +27,7 @@ export const GlobalProvider = ({ children }) => {
                 setAddModal,
                 remModal,
                 setRemModal,
+                setEdit,
                 // end modals
             }}>
             {children}

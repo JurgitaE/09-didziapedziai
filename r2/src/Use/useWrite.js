@@ -8,6 +8,16 @@ export const useWrite = () => {
     const [response, setResponse] = useState(null);
     const [create, setCreate] = useState(null);
     const [destroy, setDelete] = useState(null);
+    const [edit, setEdit] = useState(null);
+
+    useEffect(() => {
+        if (null === edit) {
+            return;
+        }
+        axios.put(URL + '/' + edit.action + '/' + edit.id, { number: edit.number })
+            .then(res => setResponse(res.data));
+
+    }, [edit]);
 
     useEffect(() => {
         if (null === create) {
@@ -27,5 +37,5 @@ export const useWrite = () => {
 
     }, [destroy]);
 
-    return [response, setCreate, setDelete];
+    return [response, setCreate, setDelete, setEdit];
 };

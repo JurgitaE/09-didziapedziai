@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Global } from './Global';
 
 function List() {
-    const { list, setDeleteModal } = useContext(Global);
+    const { list, setDeleteModal, setAddModal, setRemModal } = useContext(Global);
 
     return (
         <div className="card mt-4">
@@ -22,7 +22,7 @@ function List() {
                                         <button
                                             type="button"
                                             className="btn btn-primary"
-                                            onClick={() => setDeleteModal(null)}>
+                                            onClick={() => setAddModal(n)}>
                                             ADD
                                         </button>
                                     </div>
@@ -30,7 +30,7 @@ function List() {
                                         <button
                                             type="button"
                                             className="btn btn-primary"
-                                            onClick={() => setDeleteModal(null)}>
+                                            onClick={() => setRemModal(n)}>
                                             REM
                                         </button>
                                     </div>
